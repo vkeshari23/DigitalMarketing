@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function PortfolioSection() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
     "/pexels-ivan-s-8117437.jpg",
