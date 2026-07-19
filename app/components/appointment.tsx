@@ -1,154 +1,278 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { useState } from "react";
+import {
+  Rocket,
+  Smartphone,
+  Target,
+  Monitor,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: Rocket,
+    title: "Search Engine Optimization",
+    desc: "Rank higher on Google with advanced SEO techniques that drive long-term business growth.",
+  },
+  {
+    icon: Smartphone,
+    title: "Social Media Growth",
+    desc: "Increase engagement, build brand awareness, and generate quality leads through social media.",
+  },
+  {
+    icon: Target,
+    title: "Performance Marketing",
+    desc: "Maximize your ROI with Google Ads and Meta Ads campaigns designed for better conversions.",
+  },
+  {
+    icon: Monitor,
+    title: "Web Development",
+    desc: "Professional, mobile-friendly websites built for speed, performance, and higher conversions.",
+  },
+];
 
 export default function WhyChooseSection() {
-  const [data, setData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    location: "",
-    requirement: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(data);
-    setData({ name: "", phone: "", email: "", location: "", requirement: "" });
-  };
   return (
-    <section className="bg-[#f5f5f5] py-16 px-6 md:px-16 lg:px-24">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        {/* LEFT SIDE */}
-        <div>
-          <h2 className="text-3xl md:text-4xl text-gray-900 leading-snug">
-            <span className="font-bold">What Makes Regortz</span> - Best Digital
-            Marketing Company in
-          </h2>
-          <h2 className="text-3xl md:text-4xl text-gray-900 leading-snug mb-10">
-            Bangalore?
-          </h2>
+    <section id="appointment" className="relative flex min-h-[95vh] items-center overflow-hidden bg-[#f6f6f6] py-14 lg:py-20 scroll-mt-14 md:scroll-mt-16">
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {/* Card 1 */}
-            {/* <div className="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition"> */}
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-              <div className="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                AI
-              </div>
-              <h3 className="font-semibold text-lg">AI Powered Marketing</h3>
-              <p className="text-gray-500 text-sm mt-2">
-                Smarter campaigns, better targeting, higher ROI.
-              </p>
-            </div>
+      {/* ================= FLOATING SHAPES ================= */}
 
-            {/* Card 2 */}
-            {/* <div className="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition"> */}
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-              <div className="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                ₹
-              </div>
-              <h3 className="font-semibold text-lg">ROI Focused Execution</h3>
-              <p className="text-gray-500 text-sm mt-2">
-                We maximize your ad spend for real business growth.
-              </p>
-            </div>
+      <motion.div
+        animate={{
+          rotate: [0, 180, 0],
+          x: [0, 100, 0],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-[5%] top-[15%] h-8 w-8 border border-gray-300"
+      />
 
-            {/* Card 3 */}
-            {/* <div className="bg-white p-6 rounded-2xl shadow-sm border hover:shadow-md transition"> */}
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-              <div className="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                360°
-              </div>
-              <h3 className="font-semibold text-lg">
-                360° Marketing Solutions
-              </h3>
-              <p className="text-gray-500 text-sm mt-2">
-                Everything under one roof from branding to conversions.
-              </p>
-            </div>
+      <motion.div
+        animate={{
+          rotate: [0, 180, 0],
+          x: [0, 120, 0],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-[20%] left-[8%] h-6 w-6 border border-gray-300"
+      />
 
-            {/* Card 4 */}
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
-              <div className="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                📊
-              </div>
-              <h3 className="font-semibold text-lg">Data Backed Results</h3>
-              <p className="text-gray-500 text-sm mt-2">
-                No guesswork — just clear numbers, real growth.
-              </p>
-            </div>
-          </div>
-        </div>
+      <motion.div
+        animate={{
+          rotate: [0, -180, 0],
+          x: [0, -120, 0],
+        }}
+        transition={{
+          duration: 17,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute right-[10%] top-[25%] h-7 w-7 border border-gray-300"
+      />
 
-        {/* RIGHT SIDE (FORM) */}
-        <div className="bg-[#4b4b4b] text-white p-8 md:p-10 rounded-3xl shadow-lg">
-          <h3 className="text-2xl font-semibold mb-8">Make An Appointment</h3>
-          <form onSubmit={handleSubmit}>
-            {/* <div className="grid sm:grid-cols-2 gap-5"> */}
-            <div className="grid sm:grid-cols-2 gap-x-5 gap-y-10">
-              <input
-                type="text"
-                name="name"
-                onChange={handleChange}
-                placeholder="NAME"
-                className="bg-transparent border border-white/30 rounded-full px-5 py-8 outline-none placeholder:text-white/70"
-              />
+      <motion.div
+        animate={{
+          rotate: [0, -180, 0],
+          x: [0, -100, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-[10%] right-[15%] h-5 w-5 border border-gray-300"
+      />
 
-              <input
-                type="number"
-                name="phone"
-                onChange={handleChange}
-                placeholder="PHONE"
-                className="bg-transparent border border-white/30 rounded-full px-5 py-8 outline-none placeholder:text-white/70"
-              />
+      <motion.div
+        animate={{
+          rotate: [0, -180, 0],
+          x: [0, -90, 0],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-[15%] top-[42%]"
+      >
+        <div
+          className="h-0 w-0"
+          style={{
+            borderLeft: "14px solid transparent",
+            borderRight: "14px solid transparent",
+            borderTop: "22px solid #e5e5e5",
+          }}
+        />
+      </motion.div>
 
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                placeholder="EMAIL"
-                className="bg-transparent border border-white/30 rounded-full px-5 py-8 outline-none placeholder:text-white/70"
-              />
+      <motion.div
+        animate={{
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute left-[28%] top-[8%] h-4 w-4 rounded-full bg-gray-300"
+      />
 
-              <input
-                type="text"
-                name="location"
-                onChange={handleChange}
-                placeholder="LOCATION"
-                className="bg-transparent border border-white/30 rounded-full px-5 py-8 outline-none placeholder:text-white/70"
-              />
-            </div>
+      <div className="container mx-auto max-w-[1450px] px-5">
 
-            <div className="mt-10">
-              <input
-                type="text"
-                name="requirement"
-                onChange={handleChange}
-                placeholder="REQUIREMENT"
-                //   onChange={handleChange}
-                className="w-full bg-transparent border border-white/30 rounded-full px-5 py-8 outline-none placeholder:text-white/70"
-              />
-            </div>
+        {/* ================= CARDS + FORM ================= */}
 
-            {/* <button className="mt-10 w-full bg-yellow-400 text-black font-semibold py-3 rounded-lg hover:bg-yellow-500 transition">
-            Book Appointment
-          </button> */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-10 w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              type="submit"
+        <div className="grid items-stretch gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+
+          {/* ================= LEFT: HEADING + CARDS ================= */}
+
+          <div className="flex h-full flex-col">
+
+            {/* ================= HEADING ================= */}
+
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="mb-6 max-w-[650px] text-left text-[24px] font-bold leading-[1.2] text-black md:text-[32px] lg:text-[38px]"
             >
-              Book Appointment
-            </motion.button>
-          </form>
+              What Makes Futurloopix-
+              <span className="font-normal">
+                {" "}
+                Best Digital Marketing?
+              </span>
+            </motion.h2>
+
+          <div className="grid flex-1 gap-3 sm:grid-cols-2 lg:grid-rows-2">
+            {features.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                  }}
+                  whileHover={{
+                    y: -6,
+                  }}
+                  className="group relative flex min-h-[150px] sm:min-h-[160px] flex-col justify-center overflow-hidden rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 text-center shadow-md transition-all duration-500 hover:shadow-[0_16px_35px_rgba(0,0,0,0.12)]"
+                >
+                  <div className="relative mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-300 via-[#f5c400] to-amber-500 text-black shadow-[0_8px_20px_rgba(245,196,0,0.35)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <Icon size={22} />
+                  </div>
+
+                  <h3 className="relative mb-1.5 text-[15px] sm:text-[16px] font-semibold text-black transition-colors duration-300 group-hover:text-[#b8860b]">
+                    {item.title}
+                  </h3>
+
+                  <p className="relative text-[12px] sm:text-[13px] leading-5 text-gray-600">
+                    {item.desc}
+                  </p>
+
+                  <div className="relative mx-auto mt-3 h-[2px] w-0 bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-500 group-hover:w-12" />
+                </motion.div>
+              );
+            })}
+            </div>
+
+          </div>
+
+          {/* ================= RIGHT FORM ================= */}
+
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="
+group
+flex
+h-full
+w-full
+max-w-[680px]
+ml-0
+md:ml-6
+lg:ml-10
+flex-col
+justify-center
+rounded-[28px]
+bg-[#4f4f4f]
+p-7
+sm:p-9
+md:p-11
+shadow-[0_25px_70px_rgba(0,0,0,0.18)]
+"
+          >
+            <h3 className="mb-6 text-[26px] font-bold text-white sm:text-[30px] md:text-[32px]">
+              Make An Appointment
+            </h3>
+
+            <form className="space-y-5">
+
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                <input
+                  type="text"
+                  placeholder="NAME"
+                  className="h-[72px] w-full rounded-full border border-[#8d8d8d] bg-transparent px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-[12px] placeholder:font-semibold placeholder:tracking-[2px] placeholder:text-white/80 hover:border-white/60 focus:border-[#f5c400] focus:shadow-[0_0_0_3px_rgba(245,196,0,0.15)]"
+                />
+
+                <input
+                  type="text"
+                  placeholder="PHONE"
+                  className="h-[72px] w-full rounded-full border border-[#8d8d8d] bg-transparent px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-[12px] placeholder:font-semibold placeholder:tracking-[2px] placeholder:text-white/80 hover:border-white/60 focus:border-[#f5c400] focus:shadow-[0_0_0_3px_rgba(245,196,0,0.15)]"
+                />
+
+              </div>
+
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                <input
+                  type="email"
+                  placeholder="EMAIL"
+                  className="h-[72px] w-full rounded-full border border-[#8d8d8d] bg-transparent px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-[12px] placeholder:font-semibold placeholder:tracking-[2px] placeholder:text-white/80 hover:border-white/60 focus:border-[#f5c400] focus:shadow-[0_0_0_3px_rgba(245,196,0,0.15)]"
+                />
+
+                <input
+                  type="text"
+                  placeholder="LOCATION"
+                  className="h-[72px] w-full rounded-full border border-[#8d8d8d] bg-transparent px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-[12px] placeholder:font-semibold placeholder:tracking-[2px] placeholder:text-white/80 hover:border-white/60 focus:border-[#f5c400] focus:shadow-[0_0_0_3px_rgba(245,196,0,0.15)]"
+                />
+
+              </div>
+
+              <input
+                type="text"
+                placeholder="REQUIREMENT"
+                className="h-[72px] w-full rounded-full border border-[#8d8d8d] bg-transparent px-6 text-sm text-white outline-none transition-all duration-300 placeholder:text-[12px] placeholder:font-semibold placeholder:tracking-[2px] placeholder:text-white/80 hover:border-white/60 focus:border-[#f5c400] focus:shadow-[0_0_0_3px_rgba(245,196,0,0.15)]"
+              />
+
+              <button
+                type="submit"
+               className="mt-2 h-[66px] w-full rounded-xl bg-[#f5c400] text-[16px] font-semibold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(245,196,0,0.4)] active:scale-[0.98]"
+              >
+                Book Appointment
+              </button>
+
+            </form>
+
+          </motion.div>
+
         </div>
+
       </div>
+
     </section>
   );
 }

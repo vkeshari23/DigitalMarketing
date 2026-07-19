@@ -11,4 +11,133 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  /* Render the whole app at 75% so the default 100% browser view matches
+     what previously only looked right at a 75% browser zoom. */
+  zoom: 0.75;
+}
+
+/* zoom also shrinks viewport-height units, so full-height sections would no
+   longer fill the physical screen. Divide by the zoom factor to compensate. */
+.min-h-screen {
+  min-height: calc(100vh / 0.75);
+}
+.hero-viewport {
+  height: calc(100vh / 0.75 - 82px);
+}
+@media (min-width: 768px) {
+  .hero-viewport {
+    height: calc(100vh / 0.75 - 114px);
+  }
+}
+
+/* ================= FOOTER ANIMATIONS ================= */
+
+/* Slow floating glow blobs */
+@keyframes footerFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -40px) scale(1.15);
+  }
+}
+
+@keyframes footerFloatAlt {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 30px) scale(1.2);
+  }
+}
+
+/* Animated moving gradient for the top accent line */
+@keyframes footerGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Rising particle dots */
+@keyframes footerParticle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-160px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.footer-float {
+  animation: footerFloat 14s ease-in-out infinite;
+}
+.footer-float-alt {
+  animation: footerFloatAlt 18s ease-in-out infinite;
+}
+.footer-accent-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.28),
+    rgba(0, 0, 0, 0.12),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: footerGradientShift 6s linear infinite;
+}
+.footer-particle {
+  animation: footerParticle 7s linear infinite;
+}
+
+/* Slow-drifting faint grid behind the footer content */
+@keyframes footerGridDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 44px 44px;
+  }
+}
+.footer-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at center, #000 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 10%,
+    transparent 70%
+  );
+  animation: footerGridDrift 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-float,
+  .footer-float-alt,
+  .footer-accent-line,
+  .footer-particle,
+  .footer-grid {
+    animation: none;
+  }
 }

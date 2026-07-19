@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -13,153 +13,227 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Home", path: "/" },
-    { name: "AboutUs", path: "/aboutUs" },
+    { name: "About Us", path: "/aboutUs" },
     { name: "Services", path: "/services" },
-    // { name: "Career", path: "/career" },
-    // { name: "Blogs", path: "/blogs" },
+    { name: "Career", path: "/career" },
+    { name: "Blogs", path: "/blogs" },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-black">
-      {/* Top Gradient Line */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 animate-spinSlow" />
+    <div className="fixed top-0 left-0 w-full z-[9999] isolate">
+      {/* GOLDEN TOP LINE */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500 animate-pulse" />
 
       <nav
-        className={`transition-all duration-300 px-6 md:px-12 py-4 flex items-center justify-between
-        ${
-          scrolled
-            ? "backdrop-blur-xl bg-black/80 border-b border-white/20"
-            : "backdrop-blur-md bg-black/60"
-        } text-white`}
+        className={`relative overflow-visible h-20 md:h-28 px-4 sm:px-6 md:px-14 flex items-center justify-between text-white transition-all duration-300 bg-black shadow-[0_4px_0_0_#000]
+        ${scrolled ? "border-b border-white/10" : ""}`}
       >
-        {/* 🔥 LOGO WITH ROTATING TEXT */}
-        <div className="flex items-center gap-3">
+        {/* LOGO */}
+        <Link href="/" className="relative z-10 flex items-center">
+          <img
+            src="/flx_logo.png"
+            alt="Futureloopix Logo"
+            className="h-16 sm:h-20 md:h-[100px] w-auto object-contain"
+          />
+        </Link>
 
-          <div className="relative w-16 h-16 flex items-center justify-center">
-
-            {/* Rotating Circle Text */}
-            <div className="absolute inset-0 animate-spinSlow">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <defs>
-                  <path
-                    id="circlePath"
-                    d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
-                  />
-                </defs>
-                <text
-                  fill="white"
-                  fontSize="8"
-                  letterSpacing="2"
-                  className="uppercase"
-                >
-                  <textPath href="#circlePath">
-                    • FUTURELOOPIX TECHNOLOGIES • FUTURELOOPIX TECHNOLOGIES •
-                  </textPath>
-                </text>
-              </svg>
-            </div>
-
-            {/* Center Logo */}
-            <img
-              src="/logo_fl.png"
-              alt="logo"
-              className="w-18 h-18 object-contain z-10"
-            />
-          </div>
-
-          {/* Company Name */}
-          <span className="text-xl md:text-2xl font-bold tracking-wide">
-            Futureloopix
-          </span>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-lg font-medium">
-          {menuItems.map((item, index) => {
+        {/* DESKTOP MENU */}
+        <ul
+          className="hidden md:flex items-center z-10 shrink-0"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          {menuItems.map((item, i) => {
             const isActive = pathname === item.path;
-            return (
-              <li key={index} className="relative group">
-                <Link href={item.path}>
-                  <span
-                    className={`transition-colors duration-300 ${
-                      isActive
-                        ? "text-purple-400"
-                        : "group-hover:text-purple-400"
-                    }`}
-                  >
-                    {item.name}
-                  </span>
-                </Link>
 
-                <span
-                  className={`absolute left-0 bottom-0 h-[2px] bg-purple-500 transition-all duration-300
-                  ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
-                ></span>
+            return (
+              <li key={i} className="shrink-0" style={{ margin: "0px 25px" }}>
+                <Link
+                  href={item.path}
+                  className={`whitespace-nowrap rounded-full transition-all duration-300
+                  ${
+                    isActive
+                      ? "bg-yellow-400 text-black shadow-lg px-5 py-2"
+                      : "text-white hover:text-yellow-400 hover:bg-white/10 px-3 py-2"
+                  }`}
+                  style={{
+                    fontFamily: "Arial, sans-serif",
+                    fontSize: "20px",
+                  }}
+                >
+                  {item.name}
+                </Link>
               </li>
             );
           })}
         </ul>
 
-        {/* Contact Button */}
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="hidden md:block">
+        {/* CONTACT BUTTON */}
+        <motion.div
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="hidden md:block z-10 shrink-0 ml-2"
+        >
           <Link
             href="/contact"
-            className="bg-gradient-to-r from-purple-600 to-pink-500 px-6 py-2 rounded-full font-semibold"
+            className="whitespace-nowrap bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-black px-6 lg:px-8 py-3 text-sm lg:text-base rounded-full font-extrabold shadow-lg hover:shadow-yellow-400/40 transition"
           >
             Contact Us
           </Link>
         </motion.div>
 
-        {/* Mobile Button */}
-        <div className="md:hidden">
+        {/* MOBILE MENU BUTTON */}
+        <div className="md:hidden z-10">
           <button onClick={() => setOpen(!open)}>
             {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-black/90 px-6 py-6 space-y-4"
-          >
-            {menuItems.map((item, index) => {
-              const isActive = pathname === item.path;
-              return (
-                <Link
-                  key={index}
-                  href={item.path}
-                  className={`block text-lg border-b pb-2 ${
-                    isActive ? "text-purple-400" : "text-white"
-                  }`}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              );
-            })}
+      {/* MOBILE MENU — RIGHT-SIDE DRAWER */}
+      {/* BACKDROP */}
+      <div
+        onClick={() => setOpen(false)}
+        className={`md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity duration-300 ${
+          open ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
 
-            <Link
-              href="/contact"
-              className="block text-center bg-gradient-to-r from-purple-600 to-pink-500 py-3 rounded-full font-semibold mt-4"
-            >
-              Contact Us
-            </Link>
-          </motion.div>
+      {/* DRAWER PANEL */}
+      <aside
+        className={`md:hidden fixed top-0 right-0 h-[100dvh] w-[82%] max-w-[340px] bg-black border-l border-yellow-400/20 z-[70] flex flex-col overflow-hidden transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* ROTATING CUBE BACKGROUND (only while open) */}
+        {open && (
+          <div className="cube-bg pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.18]">
+            <div className="cube-scene">
+              <div className="cube">
+                {["front", "back", "right", "left", "top", "bottom"].map((f) => (
+                  <span key={f} className={`cube-face cube-face--${f}`} />
+                ))}
+              </div>
+            </div>
+          </div>
         )}
-      </AnimatePresence>
+
+        {/* SOFT GLOW */}
+        <div className="pointer-events-none absolute -top-16 -right-10 h-64 w-64 rounded-full bg-yellow-400/10 blur-[100px]" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-yellow-500/10 blur-[110px]" />
+
+        {/* HEADER */}
+        <div className="relative z-10 flex items-center justify-between px-6 h-20 border-b border-white/10">
+          <img
+            src="/flx_logo.png"
+            alt="Futureloopix Logo"
+            className="h-14 w-auto object-contain"
+          />
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            className="text-white hover:text-yellow-400 transition"
+          >
+            <X size={28} />
+          </button>
+        </div>
+
+        {/* LINKS */}
+        <div className="relative z-10 flex-1 overflow-y-auto px-6 py-8 space-y-3">
+          {menuItems.map((item, i) => {
+            const isActive = pathname === item.path;
+
+            return (
+              <Link
+                key={i}
+                href={item.path}
+                onClick={() => setOpen(false)}
+                className={`block px-5 py-3.5 rounded-xl text-lg font-semibold transition-all duration-300
+                ${
+                  isActive
+                    ? "bg-yellow-400 text-black shadow-lg shadow-yellow-400/20"
+                    : "text-white hover:bg-white/10 hover:pl-7"
+                }`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="block text-center bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 text-black py-3.5 rounded-xl text-lg font-bold mt-4 shadow-lg shadow-yellow-400/20"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </aside>
+
+      {/* ================= CUBE ANIMATION STYLES ================= */}
+      <style jsx>{`
+        .cube-scene {
+          perspective: 900px;
+        }
+        .cube {
+          position: relative;
+          width: 150px;
+          height: 150px;
+          transform-style: preserve-3d;
+          animation: cubeSpin 16s linear infinite;
+        }
+        .cube-face {
+          position: absolute;
+          width: 150px;
+          height: 150px;
+          border: 1px solid rgba(250, 204, 21, 0.55);
+          background: rgba(250, 204, 21, 0.04);
+          box-shadow: inset 0 0 30px rgba(250, 204, 21, 0.08);
+        }
+        .cube-face--front {
+          transform: translateZ(75px);
+        }
+        .cube-face--back {
+          transform: rotateY(180deg) translateZ(75px);
+        }
+        .cube-face--right {
+          transform: rotateY(90deg) translateZ(75px);
+        }
+        .cube-face--left {
+          transform: rotateY(-90deg) translateZ(75px);
+        }
+        .cube-face--top {
+          transform: rotateX(90deg) translateZ(75px);
+        }
+        .cube-face--bottom {
+          transform: rotateX(-90deg) translateZ(75px);
+        }
+        @keyframes cubeSpin {
+          0% {
+            transform: rotateX(0deg) rotateY(0deg);
+          }
+          100% {
+            transform: rotateX(360deg) rotateY(360deg);
+          }
+        }
+      `}</style>
     </div>
   );
 }
