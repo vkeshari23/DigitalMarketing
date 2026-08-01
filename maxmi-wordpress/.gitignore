@@ -1,0 +1,8 @@
+# Generated local preview site (static HTML export + PHP router + theme symlink) — rebuildable, not source.
+/preview-site/
+
+# Rebuilt theme zip for Hostinger upload — build artifact, not source.
+*.zip
+
+# Local Claude Code session settings.
+/.claude/

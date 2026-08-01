@@ -1,0 +1,30 @@
+========================================================================
+  YAHAN APNI PRODUCT PHOTOS SAVE KARO
+========================================================================
+
+Har photo ko is folder me daalo aur neeche diye EXACT naam do.
+(.jpg ya .png dono chalega — bas naam same rakhna)
+
+  abc-extinguisher.jpg   ->  Red powder cylinder (ELITECH POWDER)
+  fire-ball.jpg          ->  Orange fire ball holder pe
+  smoke-detector.jpg     ->  White round smoke detector
+  call-point.jpg         ->  "FIRE / PRESS HERE" red box (manual call point)
+  beacon.jpg             ->  Red beacon / flasher light
+  landing-valve.jpg      ->  Red/brass hydrant landing valve
+  sprinkler.jpg          ->  Chrome pendant sprinkler
+  fire-hose.jpg          ->  "RRL FIRE HOSE 63mm" white hose
+  hose-reel.jpg          ->  Red hose on drum (hose reel)
+  fire-pump.jpg          ->  Diesel engine fire pump
+
+------------------------------------------------------------------------
+Kaise save kare (Windows):
+  1. Chat me photo pe right-click
+  2. "Save image as..." choose karo
+  3. Is folder me aao:
+     D:\FT\client\maxmi-wordpress\product-images\
+  4. File name me upar wala naam daalo (jaise abc-extinguisher)
+  5. Save
+
+Saari 10 photos save ho jaane ke baad mujhe bata dena --
+main inhe theme me laga ke ZIP + preview update kar dunga.
+========================================================================

@@ -1,0 +1,18 @@
+/*
+Theme Name: MAX MI Fire Safety Solution
+Theme URI: https://maxmifiresafety.com
+Author: MAX MI
+Author URI: https://maxmifiresafety.com
+Description: A modern, fully responsive and dynamic WordPress theme for MAX MI Fire Safety Solution - fire safety products & services (extinguishers, alarms, hydrants, sprinklers, AMC). Red & white theme with animations, WhatsApp float button and editable content via Customizer.
+Version: 1.0.0
+Requires at least: 5.8
+Tested up to: 6.6
+Requires PHP: 7.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: maxmi
+Tags: business, fire-safety, red, responsive, custom-menu, featured-images, translation-ready
+*/
+
+/* The full stylesheet lives in /assets/css/main.css (enqueued from functions.php).
+   This file only carries the required WordPress theme header. */

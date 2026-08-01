@@ -1,0 +1,31 @@
+========================================================================
+  BRAND / CLIENT LOGOS — yahan save karo
+========================================================================
+Har logo ko is folder me daalo aur EXACT ye naam do (.png ya .jpg dono chalega).
+Jaise hi file yahan aayegi, "Brands We Deal With" slider me text ki jagah
+LOGO dikhne lagega.
+
+  promivac.png               ->  PROMIVAC ENGINEERS
+  lce.png                    ->  LCE
+  brij-packaging.png         ->  BRIJ PACKAGING
+  salt-cafe.png              ->  THE SALT CAFE
+  college.png                ->  College crest
+  sagar-motors.png           ->  SAGAR MOTORS (Tata dealer)
+  massh.png                  ->  MASSH
+  bonnie-products.png        ->  BONNIE PRODUCTS
+  radiant.png                ->  Radiant
+  radiant-polymers.png       ->  Radiant Polymers
+  tcci.png                   ->  TCCI
+  aqua-viva.png              ->  Aqua Viva
+  elisa.png                  ->  elisa
+  blackboard.png             ->  Blackboard
+  himalaya-international.png  ->  Himalaya International
+  markup-designs.png         ->  Markup Designs
+  mindworm-industries.png    ->  Mindworm Industries
+  blr-logistiks.png          ->  BLR Logistiks
+  snow-way-logistics.png     ->  Snow Way Logistics
+  green-pc-world.png         ->  Green PC World
+
+------------------------------------------------------------------------
+Save ho jaane ke baad mujhe bolo -> main ZIP + preview update kar dunga.
+========================================================================

@@ -1,0 +1,87 @@
+========================================================================
+  MAX MI FIRE SAFETY SOLUTION — WordPress Theme
+  Hostinger par install karne ka aasan tarika (Hindi)
+========================================================================
+
+Aapko mila hai: "maxmi-fire-safety" theme folder + "maxmi-fire-safety.zip"
+
+------------------------------------------------------------------------
+STEP 0 — Zaroori: Hostinger par WordPress hona chahiye
+------------------------------------------------------------------------
+1. Hostinger login karo -> hPanel.
+2. Agar WordPress abhi install nahi hai:
+   hPanel -> "Websites" -> "Add Website" / "Auto Installer" -> WordPress
+   choose karke install kar lo (domain + admin username/password set karo).
+3. WordPress admin khulega:  https://aapkadomain.com/wp-admin
+
+------------------------------------------------------------------------
+STEP 1 — Theme upload karo (2 tarike, koi ek use karo)
+------------------------------------------------------------------------
+TARIKA A (sabse aasan — ZIP se):
+   1. wp-admin -> Appearance (Roop) -> Themes -> "Add New Theme"
+   2. Upar "Upload Theme" button dabao.
+   3. "maxmi-fire-safety.zip" file choose karo -> "Install Now".
+   4. Install hone ke baad "Activate" dabao.  BAS! Website ban gayi.
+
+TARIKA B (File Manager se, agar ZIP upload na chale):
+   1. hPanel -> File Manager -> public_html/wp-content/themes/ me jao.
+   2. Poora "maxmi-fire-safety" folder yahan upload kar do.
+   3. wp-admin -> Appearance -> Themes -> MAX MI ko "Activate" karo.
+
+------------------------------------------------------------------------
+STEP 2 — Activate karte hi ye AUTOMATIC ho jaayega
+------------------------------------------------------------------------
+- Home, About Us, Products, Services, Projects, Contact Us pages ban jaayenge.
+- Top menu (navigation) apne aap set ho jaayega.
+- Saare products, services, banner, WhatsApp button default content ke saath
+  dikhne lagenge. Website turant chalu ho jaayegi.
+
+Agar menu na dikhe to:
+   Appearance -> Menus -> "Primary Menu" -> location "Primary Menu" tick -> Save.
+
+Agar pages "Not Found" aayein to:
+   Settings -> Permalinks -> "Post name" select karo -> Save Changes.
+   (Isse links theek ho jaayenge.)
+
+------------------------------------------------------------------------
+STEP 3 — Apni details daalo (sab kuchh editable hai)
+------------------------------------------------------------------------
+wp-admin -> Appearance -> Customize:
+
+  * "MAX MI — Contact Info"  -> Phone (9582851966), WhatsApp (919582851966),
+                                Email, Address (Noida...) yahan badal sakte ho.
+  * "MAX MI — Social Links"  -> Facebook/Instagram/LinkedIn/YouTube/Twitter ke
+                                URL yahan daalo. KHAALI chhodo to icon dikhega
+                                par disabled rahega (aapne yahi kaha tha).
+  * "MAX MI — Hero Banner"   -> Banner ka title, text, button aur banner IMAGE
+                                (agar apni photo lagani ho) yahan set karo.
+  * "Site Identity"          -> apna LOGO (custom logo) yahan upload karo.
+
+Save/Publish dabana mat bhoolna.
+
+------------------------------------------------------------------------
+STEP 4 — Products add / edit karo (dynamic hai)
+------------------------------------------------------------------------
+wp-admin left menu me "Products" milega:
+  * "Add New" -> Product ka naam, description likho.
+  * "Featured Image" me apni product ki asli photo lagao (jo aapne bheji hain,
+    jaise Fire Hose, Smoke Detector, Fire Ball, ABC Powder, Landing Valve,
+    Fire Pump, Sprinkler, Hose Reel, Call Point, Beacon).
+  * "Product Categories" me category set karo (Extinguishers, Systems, etc.)
+  * Publish karo.
+
+Jaise hi aap khud ke Products add karoge, wo Home aur Products page par
+default demo products ki jagah dikhne lagenge.
+
+------------------------------------------------------------------------
+NOTE
+------------------------------------------------------------------------
+- Website 100% responsive hai (mobile, tab, laptop).
+- WhatsApp button har page par right-bottom me dikhega.
+- Contact form submit karne par seedha WhatsApp par message chala jaata hai
+  (isme email server setup ki zaroorat nahi). Agar email par bhi form chahiye
+  to plugin "WPForms" ya "Contact Form 7" install kar lena.
+- Google Map contact page par automatically address ke hisaab se dikhta hai.
+
+Koi dikkat aaye to Phone: 9582851966
+========================================================================
